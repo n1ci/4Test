@@ -1,0 +1,38 @@
+<div class="container">
+  <br />
+  <div class="row justify-content-center">
+    <h2>Songs</h2>
+  </div>
+</div>
+<div class="container">
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Band</th>
+        <th>Album</th>
+        <th>Nr.</th>
+        <th>Titel</th>
+        <th>Dauer</th>
+        <th colspan="2"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @albums.each do |a| %>
+        <% a.songs.each do |s| %>
+          <tr>
+            <td><%= s.album.band %></td>
+            <td><%= s.album.title %></td>
+            <td><%= s.position %></td>
+            <td><%= s.title %></td>
+            <td><%= s.duration %></td>
+            <td><%= link_to "Ändern", edit_song_path(s.id) %></td>
+            <td><%= link_to "Löschen", song_path(s.id), method: :delete %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr><td colspan="7">Anzahl Songs: <%= @no_songs %></td></tr>
+    </tbody>
+  </table>
+  <%= link_to "Song erfassen", new_song_path %><br />
+  <%= link_to "Alben", albums_path %>
+</div>

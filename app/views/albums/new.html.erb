@@ -1,0 +1,43 @@
+<div class="container">
+  <br />
+  <div class="row justify-content-center">
+    <h2>Album erfassen</h2>
+  </div>
+</div>
+<div class="container">
+  <%= form_for :album, url: {action: "create"}, class: "form-horizontal" do |f| %>
+    <div class="row">
+      <div class="col-md-2 offset-md-1">
+        <%= f.label :band, "Band", class: "control-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :band, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 offset-md-1">
+        <%= f.label :title, "Titel", class: "control-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 offset-md-1">
+        <%= f.label :year, "Jahr", class: "control-label" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :year, class: "form-control" %>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-10">
+        <%= f.submit "Album speichern", class: "btn btn-success" %>
+        <%= link_to "Abbrechen", albums_path, class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>

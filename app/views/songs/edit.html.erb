@@ -1,0 +1,43 @@
+<div class="container">
+  <br />
+  <div class="row justify-content-center">
+    <h2>Song ändern</h2>
+  </div>
+</div>
+<div class="container">
+  <%= form_for @song, url: {action: "update"}, class: "form-horizontal" do |f| %>
+    <div class="row">
+      <div class="col-md-2 offset-md-1">
+        <%= f.label :album_id, "Album", class: "control-label" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.collection_select :album_id, @albums, :id, :album_name, {}, {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 offset-md-1">
+        <%= f.label :title, "Titel", class: "control-label" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 offset-md-1">
+        <%= f.label :duration, "Dauer", class: "control-label" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :duration, class: "form-control" %>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-md-2"> </div>
+      <div class="col-md-10">
+        <%= f.submit "Song speichern", class: "btn btn-success" %>
+        <%= link_to "Abbrechen", songs_path, class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>
